@@ -3,11 +3,12 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Contacts List-->
         <scene sceneID="Ctv-0H-sdf">
             <objects>
                 <tableViewController id="p0M-Jm-BZs" customClass="PersonListViewController" customModule="PersonsList" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="k66-zA-fM7" kind="show" id="3WB-7i-aRr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,11 +34,55 @@
                             <outlet property="delegate" destination="p0M-Jm-BZs" id="SII-AR-Uh1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EnA-P9-O8s"/>
+                    <navigationItem key="navigationItem" title="Contacts List" id="EnA-P9-O8s"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxv-j3-K0A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="650" y="-1"/>
+        </scene>
+        <!--Person Details View Controller-->
+        <scene sceneID="L6D-S0-ao3">
+            <objects>
+                <viewController id="k66-zA-fM7" customClass="PersonDetailsViewController" customModule="PersonsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YT7-i3-rLF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Wb-Xx-Ldb">
+                                <rect key="frame" x="16" y="175" width="361" height="60.666666666666657"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3q-sc-8VL">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpC-WK-GPY">
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="361" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XEO-oW-RGj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XEO-oW-RGj" firstAttribute="trailing" secondItem="9Wb-Xx-Ldb" secondAttribute="trailing" constant="16" id="4vr-wp-eoT"/>
+                            <constraint firstItem="9Wb-Xx-Ldb" firstAttribute="top" secondItem="XEO-oW-RGj" secondAttribute="top" constant="20" id="C4H-pI-zXh"/>
+                            <constraint firstItem="9Wb-Xx-Ldb" firstAttribute="leading" secondItem="XEO-oW-RGj" secondAttribute="leading" constant="16" id="hU8-2b-RD1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dRU-2v-ALQ"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="MpC-WK-GPY" id="zfC-lH-wux"/>
+                        <outlet property="phoneNumberLabel" destination="o3q-sc-8VL" id="Wbz-mM-zaZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZF-tz-5wl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1555" y="-1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8tl-sU-U4j">
